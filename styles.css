@@ -65,6 +65,7 @@ body {
 
 .kicker {
   margin: 0;
+  font-size: 1.25rem;
   font-weight: 700;
   letter-spacing: 0.2px;
   color: rgba(29, 27, 37, 0.8);
