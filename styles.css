@@ -15,7 +15,7 @@
   --radius: 22px;
 
   --safe: 14px; /* safe margin used for NO movement */
-  --max-yes-scale: 1.35;
+  --max-yes-scale: 20;
 }
 
 * {
@@ -48,7 +48,7 @@ body {
 }
 
 .card {
-  width: min(680px, 96vw);
+  width: min(820px, 98vw);
   padding: 22px 18px 18px;
   border-radius: var(--radius);
   background: var(--card);
@@ -98,6 +98,7 @@ body {
   width: min(280px, 70vw);
   height: auto;
 }
+
 
 .button-area {
   position: relative;
@@ -210,10 +211,11 @@ body {
 
 /* Burst hearts/confetti */
 .burst-layer {
-  position: absolute;
+  position: fixed;
   inset: 0;
   pointer-events: none;
   overflow: visible;
+  z-index: 5;
 }
 
 .burst-heart {
@@ -225,7 +227,7 @@ body {
   transform: translate(-50%, -50%);
   opacity: 0;
   will-change: transform, opacity;
-  animation: pop 900ms ease-out forwards;
+  animation: pop 1600ms ease-out forwards;
 }
 
 .burst-heart::before {
@@ -233,7 +235,12 @@ body {
   display: block;
   width: 100%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.15));
+  background: linear-gradient(
+    180deg,
+    var(--pink-1),
+    var(--pink-2)
+  );
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.35) inset;
   clip-path: path("M8 14 C4 11 1 9 1 6 C1 3 3 1 6 1 C7.5 1 8.8 1.8 9 3.1 C9.2 1.8 10.5 1 12 1 C15 1 17 3 17 6 C17 9 14 11 10 14 C9.4 14.4 8.6 14.4 8 14 Z");
 }
 

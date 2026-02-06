@@ -200,19 +200,20 @@
     const originX = r.left + r.width / 2;
     const originY = r.top + r.height / 2;
 
-    const count = 34; // 20–40 target range
+    const count = 60; // bigger burst
     for (let i = 0; i < count; i++) {
       const el = document.createElement("span");
       el.className = "burst-heart";
 
       // Randomized trajectory
       const angle = rand(-Math.PI * 0.85, -Math.PI * 0.15); 
-      const distance = rand(90, 240);
+      const distance = rand(220, 900);
       const dx = Math.cos(angle) * distance;
       const dy = Math.sin(angle) * distance;
 
       const rot = `${rand(-160, 160)}deg`;
       const sc = rand(0.7, 1.35);
+      const hue = Math.round(rand(0, 360));
 
       el.style.left = `${originX}px`;
       el.style.top = `${originY}px`;
@@ -220,6 +221,7 @@
       el.style.setProperty("--dy", `${dy}px`);
       el.style.setProperty("--rot", rot);
       el.style.setProperty("--sc", sc.toFixed(2));
+      el.style.setProperty("--hue", `${hue}`);
 
       // tiny stagger
       el.style.animationDelay = `${rand(0, 120)}ms`;
@@ -241,7 +243,6 @@
     microcopy.hidden = true;
 
     success.hidden = false;
-
     // Keep focus sane for keyboard users
     success.setAttribute("tabindex", "-1");
     success.focus({ preventScroll: true });
