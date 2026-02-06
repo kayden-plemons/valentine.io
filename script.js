@@ -10,7 +10,8 @@
   const noBtn = document.getElementById("noBtn");
   const microcopy = document.getElementById("microcopy");
   const burstLayer = document.getElementById("burstLayer");
-  const success = document.getElementById("success");
+  const successTop = document.getElementById("successTop");
+  const successBottom = document.getElementById("successBottom");
 
   const title = document.getElementById("mainTitle");
   const subtitle = document.getElementById("subtitleText");
@@ -56,7 +57,7 @@
 
   function bumpYes() {
     const max = parseFloat(getComputedStyle(document.documentElement).getPropertyValue("--max-yes-scale")) || 1.35;
-    yesScale = clamp(yesScale + 0.04, 1, max);
+    yesScale = clamp(yesScale + 0.07, 1, max);
     yesBtn.style.transform = `translateY(-50%) scale(${yesScale})`;
   }
 
@@ -242,10 +243,11 @@
     area.hidden = true;
     microcopy.hidden = true;
 
-    success.hidden = false;
+    successTop.hidden = false;
+    successBottom.hidden = false;
     // Keep focus sane for keyboard users
-    success.setAttribute("tabindex", "-1");
-    success.focus({ preventScroll: true });
+    successTop.setAttribute("tabindex", "-1");
+    successTop.focus({ preventScroll: true });
   }
 
   // On resize, keep NO within bounds
