@@ -48,7 +48,7 @@ body {
 }
 
 .card {
-  width: min(520px, 92vw);
+  width: min(680px, 96vw);
   padding: 22px 18px 18px;
   border-radius: var(--radius);
   background: var(--card);
@@ -101,8 +101,8 @@ body {
 .button-area {
   position: relative;
   margin: 12px auto 8px;
-  width: min(420px, 92%);
-  height: 84px; /* reserve space so layout never jumps */
+  width: min(580px, 94%);
+  height: 100px;
 }
 
 .btn {
