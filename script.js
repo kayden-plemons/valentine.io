@@ -206,7 +206,7 @@
       el.className = "burst-heart";
 
       // Randomized trajectory
-      const angle = rand(-Math.PI * 0.95, -Math.PI * 0.05); // mostly upward
+      const angle = rand(-Math.PI * 0.85, -Math.PI * 0.15); 
       const distance = rand(90, 240);
       const dx = Math.cos(angle) * distance;
       const dy = Math.sin(angle) * distance;
