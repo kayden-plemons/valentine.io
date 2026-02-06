@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#ff5ea8" />
+    <title>Will you be my Valentine?</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <main class="scene" aria-label="Valentine proposal page">
+      <!-- decorative floating bits (CSS-only) -->
+      <div class="floaters" aria-hidden="true">
+        <span class="floater heart"></span>
+        <span class="floater sparkle"></span>
+        <span class="floater heart"></span>
+        <span class="floater sparkle"></span>
+        <span class="floater heart"></span>
+        <span class="floater sparkle"></span>
+      </div>
+
+      <section class="card" role="region" aria-label="Valentine card">
+        <header class="card__header">
+          <p class="kicker" id="kickerText">Hey <span class="name">[Name]</span>…</p>
+          <h1 class="title" id="mainTitle">Will you be my Valentine?</h1>
+          <p class="subtitle" id="subtitleText">
+            Quick warning: one of these buttons is… emotionally unavailable.
+          </p>
+        </header>
+
+        <!-- Cute illustration: simple inline SVG (original, non-copyrighted) -->
+        <div class="illustration" aria-hidden="true">
+          <svg viewBox="0 0 220 140" class="illu" focusable="false">
+            <defs>
+              <linearGradient id="g1" x1="0" x2="1" y1="0" y2="1">
+                <stop offset="0" stop-color="var(--pink-2)" />
+                <stop offset="1" stop-color="var(--pink-1)" />
+              </linearGradient>
+              <filter id="soft" x="-20%" y="-20%" width="140%" height="140%">
+                <feGaussianBlur stdDeviation="2" />
+              </filter>
+            </defs>
+
+            <!-- envelope -->
+            <rect x="35" y="55" width="150" height="70" rx="16" fill="rgba(255,255,255,.75)" />
+            <path
+              d="M45 65 L110 105 L175 65"
+              fill="none"
+              stroke="rgba(255,255,255,.9)"
+              stroke-width="8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+            <path
+              d="M45 120 L95 85"
+              fill="none"
+              stroke="rgba(255,255,255,.6)"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
+            <path
+              d="M175 120 L125 85"
+              fill="none"
+              stroke="rgba(255,255,255,.6)"
+              stroke-width="6"
+              stroke-linecap="round"
+            />
+
+            <!-- heart "seal" -->
+            <path
+              d="M110 58
+                 C110 48, 95 45, 90 55
+                 C84 66, 100 75, 110 84
+                 C120 75, 136 66, 130 55
+                 C125 45, 110 48, 110 58 Z"
+              fill="url(#g1)"
+            />
+            <path
+              d="M110 58
+                 C110 48, 95 45, 90 55
+                 C84 66, 100 75, 110 84
+                 C120 75, 136 66, 130 55
+                 C125 45, 110 48, 110 58 Z"
+              fill="none"
+              stroke="rgba(255,255,255,.55)"
+              stroke-width="2"
+              filter="url(#soft)"
+            />
+
+            <!-- little floating mini-hearts -->
+            <path d="M40 28 C40 20, 28 18, 24 26 C20 34, 30 40, 40 48 C50 40, 60 34, 56 26 C52 18, 40 20, 40 28 Z" fill="rgba(255,255,255,.25)" />
+            <path d="M192 30 C192 22, 180 20, 176 28 C172 36, 182 42, 192 50 C202 42, 212 36, 208 28 C204 20, 192 22, 192 30 Z" fill="rgba(255,255,255,.22)" />
+          </svg>
+        </div>
+
+        <div class="button-area" id="buttonArea" aria-label="Answer buttons">
+          <button class="btn btn-yes" id="yesBtn" type="button">
+            Yes 💖
+          </button>
+
+          <!-- NO button is absolutely positioned inside this container -->
+          <button
+            class="btn btn-no"
+            id="noBtn"
+            type="button"
+            aria-label="No button (playful and evasive)"
+          >
+            No 🙃
+          </button>
+        </div>
+
+        <p class="microcopy" id="microcopy" aria-live="polite">
+          You can totally press “No”… in theory.
+        </p>
+
+        <!-- Confetti/hearts container -->
+        <div class="burst-layer" id="burstLayer" aria-hidden="true"></div>
+
+        <!-- Success screen (hidden until YES) -->
+        <div class="success" id="success" hidden>
+          <div class="success__heart" aria-hidden="true"></div>
+          <h2 class="success__title">YAY!!! 💘</h2>
+          <p class="success__text">See you on Valentine’s Day ✨</p>
+          <p class="success__text small">Screenshot this as evidence. (Very scientific.)</p>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <small>Made with questionable button physics and sincere feelings.</small>
+      </footer>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
